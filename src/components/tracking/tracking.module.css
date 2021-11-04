@@ -9,12 +9,14 @@
 }
 .stats {
   border-bottom: 2px solid rgb(238, 238, 238);
-  padding-bottom: 0.75rem;
-  padding-top: 0.75rem;
+  @apply py-3;
 }
-.header {
+.header,
+.info,
+.progress {
   @apply grid grid-cols-4 pb-2;
 }
-.info {
-  @apply grid grid-cols-4;
+
+.progress {
+  @apply py-3;
 }
