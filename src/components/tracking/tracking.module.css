@@ -1,3 +1,20 @@
-.test {
-  @apply text-center text-4xl;
+/* .container {
+  width: 90%;
+} */
+.tracking {
+  margin: 5rem auto;
+  width: 60%;
+  border: 2px solid rgb(238, 238, 238);
+  @apply rounded-md text-center;
+}
+.stats {
+  border-bottom: 2px solid rgb(238, 238, 238);
+  padding-bottom: 0.75rem;
+  padding-top: 0.75rem;
+}
+.header {
+  @apply grid grid-cols-4 pb-2;
+}
+.info {
+  @apply grid grid-cols-4;
 }
