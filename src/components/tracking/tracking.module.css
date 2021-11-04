@@ -3,20 +3,23 @@
 } */
 .tracking {
   margin: 5rem auto;
-  width: 60%;
   border: 2px solid rgb(238, 238, 238);
-  @apply rounded-md text-center;
+  @apply rounded-md text-center md:w-8/12;
 }
 .stats {
   border-bottom: 2px solid rgb(238, 238, 238);
-  @apply py-3;
+  @apply py-3 grid grid-cols-2 gap-4 md:grid-cols-4;
 }
-.header,
-.info,
-.progress {
-  @apply grid grid-cols-4 pb-2;
+.header {
+  padding-bottom: 0.5rem;
 }
-
 .progress {
-  @apply py-3;
+  @apply grid grid-cols-1 gap-4 md:grid-cols-4 py-3;
+}
+.bar {
+  @apply flex justify-center text-3xl;
+}
+.title,
+.info {
+  @apply font-bold;
 }
