@@ -1,4 +1,3 @@
-import React from 'react';
 import { AiOutlineCheckCircle, AiFillCheckCircle } from 'react-icons/ai';
 
 export const reason = (state: string) => {

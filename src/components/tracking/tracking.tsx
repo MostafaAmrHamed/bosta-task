@@ -106,23 +106,6 @@ export const Tracking: React.FC<Props> = ({ trackingNumber }) => {
       ) : (
         <h1>Loading</h1>
       )}
-      {/* {textProgess.map((item, index) => {
-        return (
-          <div key={index}>
-            <div className={styles.bar}>
-              {states(items.CurrentStatus.state).state >= index
-                ? states(items.CurrentStatus.state).tag
-                : states('FALSE').tag}
-            </div>
-            <p className={styles.title}>{item}</p>
-            {index === 1 && (
-              <p style={{ color: `${reason(items.CurrentStatus.state).color}` }}>
-                {items.CurrentStatus.reason}
-              </p>
-            )}
-          </div>
-        );
-      })} */}
     </div>
   );
 };
