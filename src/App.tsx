@@ -1,7 +1,11 @@
-import React from "react";
+import { Tracking } from './components/index';
 
 function App() {
-  return <div>Bosta Task</div>;
+  return (
+    <div>
+      <Tracking trackingNumber={1094442} />
+    </div>
+  );
 }
 
 export default App;
