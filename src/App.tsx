@@ -1,9 +1,10 @@
-import { Tracking } from './components/index';
+import { Tracking, Details } from './components';
 
 function App() {
   return (
     <div>
       <Tracking trackingNumber={1094442} />
+      <Details />
     </div>
   );
 }
