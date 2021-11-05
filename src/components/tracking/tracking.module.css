@@ -11,6 +11,7 @@
   @apply py-3 grid grid-cols-2 gap-4 md:grid-cols-4;
 }
 .header {
+  color: rgb(149, 149, 149);
   padding-bottom: 0.5rem;
 }
 .progress {

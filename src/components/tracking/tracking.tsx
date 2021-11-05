@@ -1,63 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
-import { AiOutlineCheckCircle, AiFillCheckCircle } from 'react-icons/ai';
+import { states, reason } from './handleStates';
 import styles from './tracking.module.css';
 
+interface Props {
+  trackingNumber: number;
+}
 type Items = {
   TrackingNumber: string;
   CurrentStatus: {
     state: string;
     timestamp: string;
+    reason?: string;
   };
   PromisedDate?: string;
 };
-const states = (status: string) => {
-  // const resColor = reason();
-  switch (status) {
-    case 'TICKET_CREATED' || 'NOT_YET_SHIPPED':
-      return {
-        message: 'تم انشاء الشحنة',
-        tag: <AiFillCheckCircle fill="rgb(02, 173, 33)" />,
-        color: 'rgb(0, 173, 33)',
-        state: 1,
-      };
-    case 'PACKAGE_RECEIVED':
-      return {
-        message: 'تم استلام الشحنة من التاجر',
-        tag: <AiFillCheckCircle fill="rgb(02, 173, 33)" />,
-        color: 'rgb(0, 173, 33)',
-        state: 2,
-      };
-    case 'OUT_FOR_DELIVERY' || 'IN_TRANSIT':
-      return {
-        message: 'الشحنة خرجت للتسليم',
-        tag: <AiFillCheckCircle fill="rgb(02, 173, 33)" />,
-        color: 'rgb(0, 173, 33)',
-        state: 3,
-      };
-    case 'DELIVERED' || 'DELIVERED_TO_SENDER':
-      return {
-        message: 'تم تسليم الشحنة',
-        tag: <AiFillCheckCircle fill="rgb(0, 173, 33)" />,
-        color: 'rgb(0, 173, 33)',
-        state: 4,
-      };
-    default:
-      return {
-        tag: <AiOutlineCheckCircle fill="rgb(192, 192, 192)" />,
-        color: 'rgb(0, 173, 33)',
-        state: 1,
-      };
-  }
-};
-export const Tracking = () => {
+
+export const Tracking: React.FC<Props> = (trackingNumber) => {
   const [items, setItems] = useState<Items>();
   useEffect(() => {
     axios
-      .get('https://tracking.bosta.co/shipments/track/1094442')
+      .get(`https://tracking.bosta.co/shipments/track/7234258`)
       .then((res) => setItems(res.data));
-  }, []);
+  }, [trackingNumber]);
   return (
     <div className={styles.tracking}>
       {items ? (
@@ -99,6 +64,7 @@ export const Tracking = () => {
               </p>
             </div>
           </div>
+
           <div className={styles.progress}>
             <div>
               <div className={styles.bar}>
@@ -115,6 +81,9 @@ export const Tracking = () => {
                   : states('FALSE').tag}
               </div>
               <p className={styles.title}>الشحنة خرجت للتسليم</p>
+              <p style={{ color: `${reason(items.CurrentStatus.state).color}` }}>
+                {items.CurrentStatus.reason}
+              </p>
             </div>
             <div>
               <div className={styles.bar}>
@@ -137,6 +106,23 @@ export const Tracking = () => {
       ) : (
         <h1>Loading</h1>
       )}
+      {/* {textProgess.map((item, index) => {
+        return (
+          <div key={index}>
+            <div className={styles.bar}>
+              {states(items.CurrentStatus.state).state >= index
+                ? states(items.CurrentStatus.state).tag
+                : states('FALSE').tag}
+            </div>
+            <p className={styles.title}>{item}</p>
+            {index === 1 && (
+              <p style={{ color: `${reason(items.CurrentStatus.state).color}` }}>
+                {items.CurrentStatus.reason}
+              </p>
+            )}
+          </div>
+        );
+      })} */}
     </div>
   );
 };
