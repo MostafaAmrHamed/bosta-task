@@ -1,11 +1,32 @@
+.shipment {
+  margin: 0 auto;
+  @apply grid grid-cols-1 gap-2 lg:grid-cols-4 lg:gap-4 xl:w-8/12 mb-3;
+}
 .details {
-  margin: 5rem auto;
+  @apply lg:col-span-3 lg:order-2 text-right;
+}
+.container {
   border: 2px solid rgb(238, 238, 238);
-  @apply rounded-md text-right md:w-8/12;
+  @apply rounded-md;
 }
 .header {
-  @apply grid grid-cols-4 font-bold py-3 pr-5 text-gray-400 text-lg  bg-gray-100;
+  @apply grid grid-cols-4 md:grid-cols-5 font-bold py-3 pr-5 text-gray-400 text-lg  bg-gray-100;
 }
 .info {
-  @apply grid grid-cols-4 py-3 pr-5 border-t-2;
+  @apply grid grid-cols-4 md:grid-cols-5 py-3 pr-5 border-t-2;
+}
+
+.support {
+  border: 2px solid rgb(238, 238, 238);
+  @apply rounded-md mt-2 p-5 text-center;
+}
+.title {
+  font-weight: bold;
+}
+.address__detail {
+  border: 2px solid rgb(238, 238, 238);
+  @apply rounded-md bg-gray-100 p-5 text-right;
+}
+.btn {
+  @apply bg-red-600 mt-1 py-1 px-10 rounded-lg text-white;
 }
