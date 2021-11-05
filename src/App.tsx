@@ -3,7 +3,7 @@ import { Tracking } from './components/index';
 function App() {
   return (
     <div>
-      <Tracking trackingNumber={7234258} />
+      <Tracking trackingNumber={1094442} />
     </div>
   );
 }

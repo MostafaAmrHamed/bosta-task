@@ -3,9 +3,9 @@ import axios from 'axios';
 import { states, reason } from './handleStates';
 import styles from './tracking.module.css';
 
-interface Props {
+type Props = {
   trackingNumber: number;
-}
+};
 type Items = {
   TrackingNumber: string;
   CurrentStatus: {
@@ -16,11 +16,11 @@ type Items = {
   PromisedDate?: string;
 };
 
-export const Tracking: React.FC<Props> = (trackingNumber) => {
+export const Tracking: React.FC<Props> = ({ trackingNumber }) => {
   const [items, setItems] = useState<Items>();
   useEffect(() => {
     axios
-      .get(`https://tracking.bosta.co/shipments/track/7234258`)
+      .get(`https://tracking.bosta.co/shipments/track/${trackingNumber}`)
       .then((res) => setItems(res.data));
   }, [trackingNumber]);
   return (
