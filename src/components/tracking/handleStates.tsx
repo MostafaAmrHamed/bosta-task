@@ -22,7 +22,8 @@ export const reason = (state: string) => {
 export const states = (status: string) => {
   const resState = reason(status);
   switch (status) {
-    case 'TICKET_CREATED' || 'NOT_YET_SHIPPED':
+    case 'TICKET_CREATED':
+    case 'NOT_YET_SHIPPED':
       return {
         message: resState.resMessage || 'تم انشاء الشحنة',
         tag: <AiFillCheckCircle fill={resState.color || 'rgb(0, 173, 33)'} />,
@@ -36,14 +37,18 @@ export const states = (status: string) => {
         color: resState.color || 'rgb(110, 180, 110)',
         state: 2,
       };
-    case 'OUT_FOR_DELIVERY' || 'IN_TRANSIT':
+    case 'OUT_FOR_DELIVERY':
+    case 'IN_TRANSIT':
+    case 'WAITING_FOR_CUSTOMER_ACTION':
       return {
         message: resState.resMessage || 'الشحنة خرجت للتسليم',
         tag: <AiFillCheckCircle fill={resState.color || 'rgb(0, 173, 33)'} />,
         color: resState.color || 'rgb(110, 180, 110)',
         state: 3,
       };
-    case 'DELIVERED' || 'DELIVERED_TO_SENDER':
+    case 'DELIVERED':
+    case 'DELIVERED_TO_SENDER':
+    case 'RECEIVED_DELIVERY_LOCATION':
       return {
         message: 'تم تسليم الشحنة',
         tag: <AiFillCheckCircle fill={resState.color || 'rgb(0, 173, 33)'} />,

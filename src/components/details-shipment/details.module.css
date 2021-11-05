@@ -1,0 +1,11 @@
+.details {
+  margin: 5rem auto;
+  border: 2px solid rgb(238, 238, 238);
+  @apply rounded-md text-right md:w-8/12;
+}
+.header {
+  @apply grid grid-cols-4 font-bold py-3 pr-5 text-gray-400 text-lg  bg-gray-100;
+}
+.info {
+  @apply grid grid-cols-4 py-3 pr-5 border-t-2;
+}
