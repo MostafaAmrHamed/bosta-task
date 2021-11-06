@@ -1,12 +1,13 @@
-import React, { useRef, useState } from 'react';
-import styles from './track-shimpent.module.css';
-import {} from 'react-icons/io';
+import React, { useState } from 'react';
+
 import { HiSearchCircle } from 'react-icons/hi';
+import { Shipment, Tracking } from '../index';
+
+import styles from './track-shimpent.module.css';
 
 export const TrackShipment = () => {
   const [trackNo, setTrackNo] = useState('');
   const [show, setShow] = useState(false);
-
   return (
     <div className={styles.track__page}>
       <div className={styles.search__section}>
@@ -22,17 +23,19 @@ export const TrackShipment = () => {
               className="appearance-none text-right w-full border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="text"
               placeholder="رقم الشحنة"
-              onChange={(e) => setTrackNo(e.target.value)}
+              onChange={(e) => {
+                setTrackNo(e.target.value);
+                setShow(false);
+              }}
             ></input>
           </div>
         </div>
       </div>
-      {show ? (
+      {show && (
         <div>
-          <h1>{trackNo}</h1>
+          <Tracking trackingNumber={trackNo} />
+          <Shipment trackingNumber={trackNo} />
         </div>
-      ) : (
-        'Loading...'
       )}
     </div>
   );

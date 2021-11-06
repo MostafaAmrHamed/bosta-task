@@ -4,7 +4,7 @@
 .tracking {
   margin: 5rem auto;
   border: 2px solid rgb(238, 238, 238);
-  @apply rounded-md text-center md:w-8/12;
+  @apply rounded-md text-center xl:w-8/12;
 }
 .stats {
   border-bottom: 2px solid rgb(238, 238, 238);

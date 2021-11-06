@@ -1,4 +1,6 @@
 .track__page {
+  margin: 0 auto;
+  @apply w-11/12;
 }
 .search__section {
   margin: 0 auto;

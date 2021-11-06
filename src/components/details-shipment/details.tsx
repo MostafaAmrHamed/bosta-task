@@ -4,17 +4,20 @@ import { states } from '../tracking/handleStates';
 
 import styles from './details.module.css';
 
+type Props = {
+  trackingNumber: string;
+};
 type Items = {
   TransitEvents: { state: string; timestamp: string; hub?: string; reason?: string }[];
 };
-export const Details = () => {
+export const Details: React.FC<Props> = ({ trackingNumber }) => {
   const [items, setItems] = useState<Items>();
   const [hub, setHub] = useState<any>('');
   useEffect(() => {
-    axios.get(`https://tracking.bosta.co/shipments/track/7234258`).then((res) => {
+    axios.get(`https://tracking.bosta.co/shipments/track/${trackingNumber}`).then((res) => {
       setItems(res.data);
     });
-  }, []);
+  }, [trackingNumber]);
   useEffect(() => {
     if (items) {
       const firstHub = items.TransitEvents.find((element) => element.hub)?.hub;

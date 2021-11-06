@@ -1,11 +1,9 @@
-import { Tracking, Shipment, TrackShipment } from './components';
+import { TrackShipment } from './components';
 
 function App() {
   return (
     <div>
       <TrackShipment />
-      <Tracking trackingNumber={1094442} />
-      <Shipment />
     </div>
   );
 }
