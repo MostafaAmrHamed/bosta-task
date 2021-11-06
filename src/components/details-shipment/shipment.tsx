@@ -1,10 +1,13 @@
 import { Address, Details } from './index';
 import styles from './details.module.css';
 
-export const Shipment = () => {
+type Props = {
+  trackingNumber: string;
+};
+export const Shipment: React.FC<Props> = ({ trackingNumber }) => {
   return (
     <div className={styles.shipment}>
-      <Details />
+      <Details trackingNumber={trackingNumber} />
       <Address />
     </div>
   );

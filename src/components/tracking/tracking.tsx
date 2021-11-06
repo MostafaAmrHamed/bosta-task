@@ -4,7 +4,7 @@ import { states, reason } from './handleStates';
 import styles from './tracking.module.css';
 
 type Props = {
-  trackingNumber: number;
+  trackingNumber: string;
 };
 type Items = {
   TrackingNumber: string;

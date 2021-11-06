@@ -1,0 +1,8 @@
+.track__page {
+  margin: 0 auto;
+  @apply w-11/12;
+}
+.search__section {
+  margin: 0 auto;
+  @apply bg-gray-100 w-max text-center px-3 py-2 rounded-md;
+}
